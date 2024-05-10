@@ -86,7 +86,8 @@
       "outbounds": [
         "Best Latency",
         "🇳🇱 MΛHdi",
-        "🇳🇱 MΛHdi",
+        "🇳🇱 MΛHdi 2",
+        "🇳🇱 MΛHdi 3",
         "🇦🇺 Australia 1",
         "🇦🇺 Australia 2"
       ]
@@ -97,6 +98,7 @@
       "outbounds": [
         "🇳🇱 MΛHdi",
         "🇳🇱 MΛHdi 2",
+        "🇳🇱 MΛHdi 3",
         "🇦🇺 Australia 1",
         "🇦🇺 Australia 2"
       ],
@@ -156,6 +158,34 @@
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACDEm4x9dlkKtLblXP7y0ZjKr7g6DdP2WaOgIjI6ujcnTQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 MΛHdi 3",
+      "server": "193.38.54.48",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+      },
+      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "tls": {
+        "enabled": true,
+        "server_name": "let-him-cook.ircp.online",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
