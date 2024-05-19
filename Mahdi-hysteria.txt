@@ -7,25 +7,19 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "local",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only",
         "detour": "direct"
       },
       {
@@ -55,7 +49,6 @@
         "rewrite_ttl": 20
       }
     ],
-    "strategy": "ipv4_only",
     "disable_expire": true
   },
   "inbounds": [
@@ -65,6 +58,7 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -75,8 +69,7 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
-      "sniff": true,
-      "domain_strategy": "ipv4_only"
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -86,11 +79,12 @@
       "outbounds": [
         "Best Latency",
         "🇳🇱 MΛHdi",
-        "🇳🇱 MΛHdi 2",
-        "🇳🇱 MΛHdi 3",
-        "🇳🇱 MΛHdi 4-ipv6",
-        "🇳🇱 MΛHdi 5-ipv6",
-       "🇦🇺 Australia 1",
+        "🇳🇱 MΛHdi - 2",
+        "🇳🇱 MΛHdi - 3",
+        "🇳🇱 MΛHdi - 4",
+        "🇳🇱 MΛHdi - ipv6",
+        "🇳🇱 MΛHdi - 2 - ipv6",
+        "🇦🇺 Australia 1",
         "🇦🇺 Australia 2"
       ]
     },
@@ -99,10 +93,11 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇳🇱 MΛHdi",
-        "🇳🇱 MΛHdi 2",
-        "🇳🇱 MΛHdi 3",
-        "🇳🇱 MΛHdi 4-ipv6",
-        "🇳🇱 MΛHdi 5-ipv6",
+        "🇳🇱 MΛHdi - 2",
+        "🇳🇱 MΛHdi - 3",
+        "🇳🇱 MΛHdi - 4",
+        "🇳🇱 MΛHdi - ipv6",
+        "🇳🇱 MΛHdi - 2 - ipv6",
         "🇦🇺 Australia 1",
         "🇦🇺 Australia 2"
       ],
@@ -114,7 +109,6 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 MΛHdi",
-      "domain_strategy": "ipv4_only",
       "server": "193.38.54.48",
       "server_port": 443,
       "obfs": {
@@ -142,7 +136,35 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 MΛHdi 2",
+      "tag": "🇳🇱 MΛHdi - 2",
+      "server": "37.221.127.169",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2"
+      },
+      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2",
+      "tls": {
+        "enabled": true,
+        "server_name": "let-her-cook.ircp.online",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACDEm4x9dlkKtLblXP7y0ZjKr7g6DdP2WaOgIjI6ujcnTQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+        {
+      "type": "hysteria2",
+      "tag": "🇳🇱 MΛHdi - 3",
       "server": "193.38.54.48",
       "server_port": 443,
       "obfs": {
@@ -170,7 +192,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 MΛHdi 3",
+      "tag": "🇳🇱 MΛHdi - 4",
       "server": "37.221.127.169",
       "server_port": 443,
       "obfs": {
@@ -198,7 +220,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 MΛHdi 4-ipv6",
+      "tag": "🇳🇱 MΛHdi - ipv6",
       "server": "2a09:7c44:0:14::1",
       "server_port": 443,
       "obfs": {
@@ -226,7 +248,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 MΛHdi 5-ipv6",
+      "tag": "🇳🇱 MΛHdi - 2 - ipv6",
       "server": "2a09:7c44:0:13::1",
       "server_port": 443,
       "obfs": {
@@ -255,7 +277,6 @@
     {
       "type": "hysteria2",
       "tag": "🇦🇺 Australia 1",
-      "domain_strategy": "ipv4_only",
       "server": "152.69.179.155",
       "server_port": 443,
       "obfs": {
@@ -274,7 +295,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
+            "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -284,7 +305,6 @@
     {
       "type": "hysteria2",
       "tag": "🇦🇺 Australia 2",
-      "domain_strategy": "ipv4_only",
       "server": "158.179.18.187",
       "server_port": 443,
       "up_mbps": 10000,
