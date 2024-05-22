@@ -262,7 +262,7 @@ endipresult() {
 		},
 		{
 		"type": "wireguard",
-		"tag": ""IP->IR🇮🇷|MΛHdi",",
+		"tag": "IP->IR🇮🇷|MΛHdi",
 		"local_address": [
 			"172.16.0.2/32",
 			"'$publicKey'"
@@ -277,8 +277,8 @@ endipresult() {
 		},
 		{
 		"type": "wireguard",
-		"tag": ""IP->DE🇩🇪|MΛHdi"",
-		"detour": ""IP->IR🇮🇷|MΛHdi",",
+		"tag": "IP->DE🇩🇪|MΛHdi",
+		"detour": "IP->IR🇮🇷|MΛHdi",
 		"local_address": [
 			"172.16.0.2/32",
 			"'$publicKey2'"
