@@ -245,8 +245,8 @@ endipresult() {
 		"tag": "select",
 		"outbounds": [
 			"auto",
-			"IP Iran->t.me/mhdi_h5",
-			"IP Main->t.me/mhdi_h5"
+			"IP Iran->MΛHdi",
+			"IP Main->MΛHdi"
 		],
 		"default": "auto"
 		},
@@ -254,15 +254,15 @@ endipresult() {
 		"type": "urltest",
 		"tag": "auto",
 		"outbounds": [
-			"IP Iran->t.me/mhdi_h5",
-			"IP Main->t.me/mhdi_h5"
+			"IP Iran->MΛHdi",
+			"IP Main->MΛHdi"
 		],
 		"url": "http://cp.cloudflare.com/",
 		"interval": "10m0s"
 		},
 		{
 		"type": "wireguard",
-		"tag": "IP Iran->t.me/mhdi_h5",
+		"tag": "IP Iran->MΛHdi",
 		"local_address": [
 			"172.16.0.2/32",
 			"'$publicKey'"
@@ -277,8 +277,8 @@ endipresult() {
 		},
 		{
 		"type": "wireguard",
-		"tag": "IP Main->t.me/mhdi_h5",
-		"detour": "IP Iran->t.me/mhdi_h5",
+		"tag": "IP Main->MΛHdi",
+		"detour": "IP Iran->MΛHdi",
 		"local_address": [
 			"172.16.0.2/32",
 			"'$publicKey2'"
