@@ -267,6 +267,7 @@ echo "${CYAN}Your link:"
 curl https://bashupload.com/ -T warponwarp.json | sed -e 's#wget#Your Link#' -e 's#https://bashupload.com/\(.*\)#https://bashupload.com/\1?download=1#'
 echo "------------------------------------------------------------"
 echo ""
+echo "از کانفیگ های رایگان خود لذت ببرید♡"
 mv warponwarp.json warponwarp_$(date +"%Y%m%d_%H%M%S").json
 
 }
