@@ -263,7 +263,7 @@ echo ""
 echo "${GREEN}Upload Files to Get Link${RESET}"
 echo "------------------------------------------------------------"
 echo ""
-echo "Your link:"
+echo "${CYAN}Your link:"
 curl https://bashupload.com/ -T output.json | sed -e 's#wget#Your Link#' -e 's#https://bashupload.com/\(.*\)#https://bashupload.com/\1?download=1#'
 echo "------------------------------------------------------------"
 echo ""
