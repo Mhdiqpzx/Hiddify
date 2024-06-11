@@ -1,11 +1,14 @@
 #!/bin/bash
 
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-CYAN=$(tput setaf 6)
-RED=$(tput setaf 1)
-RESET=$(tput sgr0)
+#colors
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+purple='\033[0;35m'
+cyan='\033[0;36m'
+white='\033[0;37m'
+rest='\033[0m'
 
 get_values() {
 
@@ -156,9 +159,9 @@ ulimit -n 102400
 chmod +x warpendpoint
 ./warpendpoint
 clear
-echo "${GREEN}successfully generated ipv4 endip list${RESET}"
-echo "${GREEN}successfully create result.csv file${RESET}"
-echo "${CYAN}Now we're going to process result.csv${RESET}"
+echo "${green}successfully generated ipv4 endip list${rest}"
+echo "${green}successfully create result.csv file${rest}"
+echo "${cyan}Now we're going to process result.csv${rest}"
 process_result_csv $temp_var
 rm -rf ip.txt warpendpoint result.csv
 exit
@@ -260,14 +263,14 @@ full_json='
 '
 echo "$full_json" > warponwarp.json
 echo ""
-echo "${GREEN}Upload Files to Get Link${RESET}"
+echo "${green}Upload Files to Get Link${rest}"
 echo "------------------------------------------------------------"
 echo ""
-echo "${CYAN}Your link:"
-curl https://bashupload.com/ -T warponwarp.json | sed -e 's#wget#Your Link#' -e 's#https://bashupload.com/\(.*\)#https://bashupload.com/\1?download=1#'
+echo "${cyan}Your link:"
+curl https://bashupload.com/ -T warponwarp.json | sed -e 's#wget#Your Link#' -e 's#https://bashupload.com/\(.*\)#https://bashupload.com/\1?download=1#'${rest}
 echo "------------------------------------------------------------"
 echo ""
-echo "Enjoy your free configs♡"
+echo "${yellow}Enjoy your free configs♡${rest}"
 mv warponwarp.json warponwarp_$(date +"%Y%m%d_%H%M%S").json
 
 }
