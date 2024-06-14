@@ -106,14 +106,14 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nᴹᵃʰᵈⁱ § hy2+ech"
+        "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nMahdj § hy2+ech"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nᴹᵃʰᵈⁱ § hy2+ech"
+        "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nMahdi § hy2+ech"
       ],
       "url": "http://cp.cloudflare.com",
       "interval": "10m0s",
@@ -122,7 +122,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nᴹᵃʰᵈⁱ § hy2+ech",
+      "tag": "🇸🇪 𝐒𝐰𝐞𝐝𝐞𝐧\nMahdi § hy2+ech",
       "domain_strategy": "prefer_ipv6",
       "server": "semeaz.daiijannapoleon.fun",
       "server_port": 443,
