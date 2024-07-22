@@ -8,7 +8,7 @@
     "servers": [
       {
         "tag": "dns-remote",
-        "address": "udp://1.1.1.1",
+        "address": "https://8.8.8.8/dns-query",
         "address_resolver": "dns-direct"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "tag": "dns-direct",
-        "address": "9.9.9.9",
+        "address": "8.8.8.8",
         "address_resolver": "dns-local",
         "detour": "direct"
       },
@@ -34,28 +34,40 @@
     ],
     "rules": [
       {
-        "domain": "imgur.com",
+        "domain": [
+          "all-in.daiijannapoleon.fun",
+          "azadi2.dgi000.store",
+          "h.88981401.xyz",
+          "arvancloudstatus.ir"
+        ],
         "server": "dns-direct"
       },
       {
         "domain": "cp.cloudflare.com",
         "server": "dns-remote",
         "rewrite_ttl": 3000
+      },
+      {
+        "rule_set": [
+          "geoip-",
+          "geosite-"
+        ],
+        "server": "dns-direct"
       }
     ],
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
-        "188.114.97.3",
-        "188.114.96.3",
-        "2a06:98c1:3120::3",
         "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3",
+        "188.114.99.0",
+        "188.114.98.0",
         "104.17.147.22",
         "104.17.148.22",
+        "2a06:98c1:3120::6",
+        "2a06:98c1:3121::6",
         "188.114.97.3",
-        "188.114.96.3",
-        "2a06:98c1:3121::3",
-        "2a06:98c1:3120::3"
+        "188.114.96.3"
       ]
     },
     "independent_cache": true
@@ -66,7 +78,6 @@
       "tag": "tun-in",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/28",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": true,
@@ -77,7 +88,7 @@
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "listen_port": 2334,
       "sniff": true,
       "sniff_override_destination": true
@@ -85,7 +96,7 @@
     {
       "type": "direct",
       "tag": "dns-in",
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "listen_port": 6450
     }
   ],
@@ -95,10 +106,9 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇵🇱 Poland",
-        "🇸🇪 Sweden",
-        "🇩🇪 Germany",
-        "🇳🇱 Netherlands"
+        "vip-1\nvip-subscription § vl+ws+tls+cdn+frag",
+        "vip-2\nvip-subscription § vl+ws+tls+cdn+frag",
+        "vip-3\nvip-subscription § vl+ws+tls+cdn+frag"
       ],
       "default": "auto"
     },
@@ -106,123 +116,106 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇵🇱 Poland",
-        "🇸🇪 Sweden",
-        "🇩🇪 Germany",
-        "🇳🇱 Netherlands"
+        "vip-1\nvip-subscription § vl+ws+tls+cdn+frag",
+        "vip-2\nvip-subscription § vl+ws+tls+cdn+frag",
+        "vip-3\nvip-subscription § vl+ws+tls+cdn+frag"
       ],
-      "url": "http://connectivitycheck.gstatic.com/generate_204",
+      "url": "http://www.apple.com/library/test/success.html",
       "interval": "10m0s",
       "idle_timeout": "1h40m0s"
     },
     {
       "type": "vless",
-      "tag": "🇵🇱 Poland",
-      "domain_strategy": "ipv4_only",
-      "server": "imgur.com",
+      "tag": "vip-1\nvip-subscription § vl+ws+tls+cdn+frag",
+      "domain_strategy": "prefer_ipv6",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-20",
+        "sleep": "0"
+      },
+      "server": "arvancloudstatus.ir",
       "server_port": 443,
-      "uuid": "c60199e9-3232-4626-9fbb-12738f60f9fb",
+      "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
-        "server_name": "imgur.com",
+        "server_name": "cdn.ircp.online",
         "alpn": "http/1.1",
         "min_version": "1.3",
         "max_version": "1.3",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/clientarea.php",
+        "path": "/@ln2ray",
         "headers": {
-          "Host": "shsaeedpl.ir",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+          "Host": "cdn.ircp.online"
         }
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
-      "tag": "🇸🇪 Sweden",
-      "domain_strategy": "ipv4_only",
-      "server": "imgur.com",
+      "tag": "vip-2\nvip-subscription § vl+ws+tls+cdn+frag",
+      "domain_strategy": "prefer_ipv6",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-20",
+        "sleep": "0"
+      },
+      "server": "arvancloudstatus.ir",
       "server_port": 443,
-      "uuid": "c60199e9-3232-4626-9fbb-12738f60f9fb",
+      "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
-        "server_name": "imgur.com",
+        "server_name": "cdn.ircp.online",
         "alpn": "http/1.1",
         "min_version": "1.3",
         "max_version": "1.3",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/clientarea.php",
+        "path": "/@ln2ray",
         "headers": {
-          "Host": "azsaeedse.ir",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+          "Host": "cdn.ircp.online"
         }
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany",
-      "domain_strategy": "ipv4_only",
-      "server": "imgur.com",
+      "tag": "vip-3\nvip-subscription § vl+ws+tls+cdn+frag",
+      "domain_strategy": "prefer_ipv6",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-20",
+        "sleep": "0"
+      },
+      "server": "arvancloudstatus.ir",
       "server_port": 443,
-      "uuid": "c60199e9-3232-4626-9fbb-12738f60f9fb",
+      "uuid": "29cf96e6-8008-4233-a883-4b5daeb72309",
       "tls": {
         "enabled": true,
-        "server_name": "imgur.com",
+        "server_name": "all-in-cdn.seyed-ali-khamenei-binamous.site",
         "alpn": "http/1.1",
         "min_version": "1.3",
         "max_version": "1.3",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/clientarea.php",
+        "path": "/@JavidnamanIran",
         "headers": {
-          "Host": "hmsaeedde.ir",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "🇳🇱 Netherlands",
-      "domain_strategy": "ipv4_only",
-      "server": "imgur.com",
-      "server_port": 443,
-      "uuid": "c60199e9-3232-4626-9fbb-12738f60f9fb",
-      "tls": {
-        "enabled": true,
-        "server_name": "imgur.com",
-        "alpn": "http/1.1",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/clientarea.php",
-        "headers": {
-          "Host": "shsaeednl.ir",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+          "Host": "all-in-cdn.seyed-ali-khamenei-binamous.site"
         }
       },
       "packet_encoding": "xudp"
@@ -240,8 +233,8 @@
       "tag": "direct-fragment",
       "tls_fragment": {
         "enabled": true,
-        "size": "1-500",
-        "sleep": "0-500"
+        "size": "10-20",
+        "sleep": "0"
       }
     },
     {
@@ -257,8 +250,8 @@
     "rules": [
       {
         "rule_set": [
-          "geoip-ir",
-          "geosite-ir"
+          "geoip-",
+          "geosite-"
         ],
         "outbound": "direct"
       },
@@ -277,21 +270,25 @@
       {
         "clash_mode": "Global",
         "outbound": "select"
+      },
+      {
+        "geoip": "private",
+        "outbound": "bypass"
       }
     ],
     "rule_set": [
       {
         "type": "remote",
-        "tag": "geoip-ir",
+        "tag": "geoip-",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-.srs",
         "update_interval": "120h0m0s"
       },
       {
         "type": "remote",
-        "tag": "geosite-ir",
+        "tag": "geosite-",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-.srs",
         "update_interval": "120h0m0s"
       }
     ],
@@ -306,7 +303,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:6756",
-      "secret": "4MLKniA0f3XbbveI"
+      "secret": "3db5S9dQkTbmkmrG"
     }
   }
 }
