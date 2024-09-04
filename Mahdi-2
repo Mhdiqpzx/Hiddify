@@ -1,3 +1,8 @@
+//profile-title: base64:Tc6bSGRp
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://github.com/Mhdiqpzx
+//profile-web-page-url: https://github.com/Mhdiqpzx
 {
   "log": {
     "level": "warn",
@@ -55,10 +60,10 @@
       "sky.rethinkdns.com": [
         "104.17.148.22",
         "104.17.147.22",
-        "188.114.96.6",
-        "188.114.97.6",
-        "2a06:98c1:3121::6",
-        "2a06:98c1:3120::6"
+        "188.114.96.7",
+        "188.114.97.7",
+        "2a06:98c1:3121::7",
+        "2a06:98c1:3120::7"
       ]
     },
     "independent_cache": true
@@ -108,7 +113,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "Mahdi-1§ 0",
+        "Mahdi-1 § 0",
         "Mahdi-2 § 1",
         "Mahdi-3 § 2"
       ],
@@ -329,7 +334,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:16756",
-      "secret": "onOpr1q3KW3mi_zj"
+      "secret": "S1eFhYjhcOLr03Ge"
     }
   }
 }
