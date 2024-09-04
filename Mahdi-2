@@ -98,7 +98,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "Mahdi-2 § 0",
+        "Mahdi-1 § 0",
         "Mahdi-2 § 1",
         "Mahdi-3 § 2"
       ],
@@ -108,7 +108,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "Mahdi-2 § 0",
+        "Mahdi-1§ 0",
         "Mahdi-2 § 1",
         "Mahdi-3 § 2"
       ],
@@ -119,7 +119,7 @@
     },
     {
       "type": "vless",
-      "tag": "Mahdi-2 § 0",
+      "tag": "Mahdi-1 § 0",
       "server": "104.21.60.230",
       "server_port": 443,
       "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
