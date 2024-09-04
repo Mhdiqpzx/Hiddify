@@ -13,7 +13,7 @@
     "servers": [
       {
         "tag": "dns-remote",
-        "address": "tls://8.8.4.4",
+        "address": "udp://1.1.1.1",
         "address_resolver": "dns-direct"
       },
       {
@@ -23,7 +23,7 @@
       },
       {
         "tag": "dns-direct",
-        "address": "8.8.8.8",
+        "address": "1.1.1.1",
         "address_resolver": "dns-local",
         "detour": "direct"
       },
@@ -44,51 +44,37 @@
         "rewrite_ttl": 3000
       },
       {
-        "domain_suffix": ".ir",
-        "server": "dns-direct"
-      },
-      {
         "rule_set": [
           "geoip-ir",
           "geosite-ir"
         ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".ir",
         "server": "dns-direct"
       }
     ],
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
-        "104.17.148.22",
         "104.17.147.22",
-        "188.114.96.7",
-        "188.114.97.7",
-        "2a06:98c1:3121::7",
-        "2a06:98c1:3120::7"
+        "104.17.148.22",
+        "188.114.96.3",
+        "188.114.97.3"
       ]
     },
     "independent_cache": true
   },
   "inbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "mtu": 9000,
-      "inet4_address": "172.19.0.1/28",
-      "inet6_address": "fdfe:dcba:9876::1/126",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "gvisor",
-      "sniff": true,
-      "sniff_override_destination": true
-    },
-    {
       "type": "mixed",
       "tag": "mixed-in",
       "listen": "127.0.0.1",
       "listen_port": 12334,
       "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": true,
+      "set_system_proxy": true
     },
     {
       "type": "direct",
@@ -105,7 +91,11 @@
         "auto",
         "Mahdi-1 § 0",
         "Mahdi-2 § 1",
-        "Mahdi-3 § 2"
+        "Mahdi-3 § 2",
+        "Mahdi-4 § 3",
+        "Mahdi-5 § 4",
+        "Mahdi-6 § 5",
+        "Mahdi-7 § 6"
       ],
       "default": "auto"
     },
@@ -115,7 +105,11 @@
       "outbounds": [
         "Mahdi-1 § 0",
         "Mahdi-2 § 1",
-        "Mahdi-3 § 2"
+        "Mahdi-3 § 2",
+        "Mahdi-4 § 3",
+        "Mahdi-5 § 4",
+        "Mahdi-6 § 5",
+        "Mahdi-7 § 6"
       ],
       "url": "http://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m0s",
@@ -198,6 +192,106 @@
       "packet_encoding": "xudp"
     },
     {
+      "type": "vless",
+      "tag": "Mahdi-4 § 3",
+      "server": "104.17.79.71",
+      "server_port": 443,
+      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "tls": {
+        "enabled": true,
+        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "epeius.r2lbzdm9cc.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-5 § 4",
+      "server": "104.17.2.25",
+      "server_port": 443,
+      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "tls": {
+        "enabled": true,
+        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "epeius.r2lbzdm9cc.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-6 § 5",
+      "server": "104.21.18.138",
+      "server_port": 443,
+      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "tls": {
+        "enabled": true,
+        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "epeius.r2lbzdm9cc.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-7 § 6",
+      "server": "104.25.47.82",
+      "server_port": 443,
+      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "tls": {
+        "enabled": true,
+        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "epeius.r2lbzdm9cc.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
       "type": "dns",
       "tag": "dns-out"
     },
@@ -226,35 +320,7 @@
   "route": {
     "rules": [
       {
-        "inbound": "dns-in",
-        "outbound": "dns-out"
-      },
-      {
-        "port": 53,
-        "outbound": "dns-out"
-      },
-      {
-        "process_name": [
-          "Hiddify",
-          "Hiddify.exe",
-          "HiddifyCli",
-          "HiddifyCli.exe"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "rule_set": [
-          "geosite-ads",
-          "geosite-malware",
-          "geosite-phishing",
-          "geosite-cryptominers",
-          "geoip-malware",
-          "geoip-phishing"
-        ],
-        "outbound": "block"
-      },
-      {
-        "domain_suffix": ".ir",
+        "domain": ".ir",
         "outbound": "direct"
       },
       {
@@ -263,51 +329,25 @@
           "geosite-ir"
         ],
         "outbound": "direct"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
       }
     ],
     "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geosite-ads",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-category-ads-all.srs",
-        "update_interval": "120h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-malware",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-malware.srs",
-        "update_interval": "120h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-phishing",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-phishing.srs",
-        "update_interval": "120h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-cryptominers",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-cryptominers.srs",
-        "update_interval": "120h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-phishing",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-phishing.srs",
-        "update_interval": "120h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-malware",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-malware.srs",
-        "update_interval": "120h0m0s"
-      },
       {
         "type": "remote",
         "tag": "geoip-ir",
@@ -334,7 +374,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:16756",
-      "secret": "S1eFhYjhcOLr03Ge"
+      "secret": "5lZJBhC_rCHo3qt4"
     }
   }
 }
