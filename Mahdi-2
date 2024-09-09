@@ -125,24 +125,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-1 § 0",
-      "server": "104.21.60.230",
+      "server": "104.20.106.113",
       "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "VIP-Sub.R2lbzDM9CC.worKers.Dev",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/M6BVo8iA3ns4lQXN",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -150,24 +150,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-2 § 1",
-      "server": "104.21.68.41",
+      "server": "www.speedtest.net",
       "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "vip-sub.R2lbZDm9Cc.woRKeRS.DEV",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/Q7Fcxy4Zf2kED8Ot",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -175,24 +175,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-3 § 2",
-      "server": "104.20.25.186",
+      "server": "104.20.252.19",
       "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "Vip-Sub.r2lBZDM9CC.WoRKeRs.DEV",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/Y7AxVTMZsbu2vVzN",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -200,24 +200,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-4 § 3",
-      "server": "104.17.79.71",
-      "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "server": "104.27.111.92",
+      "server_port": 2083,
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "vIp-sUB.R2lBzdm9cC.WORkeRs.DeV",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/5vBRAGV6I2riBCYE",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -225,24 +225,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-5 § 4",
-      "server": "104.17.2.25",
-      "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "server": "104.22.30.79",
+      "server_port": 2053,
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "viP-SUB.r2LBZDM9cc.wOrkeRS.DEv",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/RUDHvtWBV9CzQo1C",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -250,24 +250,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-6 § 5",
-      "server": "104.21.18.138",
+      "server": "104.27.200.179",
       "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "VIp-SuB.R2lbzdM9cc.WorkerS.dEv",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/rUU7lFmlMLXbWaVl",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
@@ -275,24 +275,24 @@
     {
       "type": "vless",
       "tag": "Mahdi-7 § 6",
-      "server": "104.25.47.82",
-      "server_port": 443,
-      "uuid": "bc0cb047-9ee5-4dce-8bc4-d1eb81ae2d24",
+      "server": "104.20.83.239",
+      "server_port": 2083,
+      "uuid": "e20f628c-6a5f-4df6-9624-34237a587dd2",
       "tls": {
         "enabled": true,
-        "server_name": "epeius.r2lbzdm9cc.workers.dev",
+        "server_name": "VIp-suB.R2LBzDM9Cc.wOrkERs.DeV",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/VGkBw1tbDTGoVl5v",
         "headers": {
-          "Host": "epeius.r2lbzdm9cc.workers.dev"
+          "Host": "vip-sub.r2lbzdm9cc.workers.dev"
         },
-        "max_early_data": 2048,
+        "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
