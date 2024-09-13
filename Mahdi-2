@@ -1,6 +1,549 @@
 //profile-title: base64:Tc6bSGRp
 //profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000; expire=2546249531
+//subscription-userinfo: upload=0; download=0; total=1073741824000; expire=2546249531
 //support-url: https://github.com/Mhdiqpzx
 //profile-web-page-url: https://github.com/Mhdiqpzx
-dmxlc3M6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTA0LjE5LjM5LjEyMjo0NDMvP3R5cGU9d3MmZW5jcnlwdGlvbj1ub25lJmhvc3Q9ZnIxLnhuLS1taXJyb3JzLW9qOGttNTJ0eGM3ZC5jb20mcGF0aD0lMkZ5bSUyRmZyMSZzZWN1cml0eT10bHMmc25pPWZyMS54bi0tbWlycm9ycy1vajhrbTUydHhjN2QuY29tJmZwPWNocm9tZSZwYWNrZXRFbmNvZGluZz14dWRwI01haGRpLSVGMCU5RiU4NyVBQiVGMCU5RiU4NyVCNzAxCmh5MjovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxNDAuMjQ1LjI3LjIyMDo0NDMvP21wb3J0PTUxMDAwLTUzMDAwJmluc2VjdXJlPTEmc25pPWNuLmNyZW1lZGVsYW1lci5jb20jTWFoZGktJUYwJTlGJTg3JUFFJUYwJTlGJTg3JUIzMDEKaHkyOi8vOTA4NTk3YzUtMmI1Ny00ODE1LWExOWItY2VhNGQ0ODcxZTNlQDE0MS4xNDguMjIyLjE4MTo0NDMvP21wb3J0PTUxMDAwLTUzMDAwJmluc2VjdXJlPTEmc25pPWNuLmNyZW1lZGVsYW1lci5jb20jTWFoZGktJUYwJTlGJTg3JUFFJUYwJTlGJTg3JUIzMDIKdmxlc3M6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTA0LjE5LjM0LjEwMzo0NDMvP3R5cGU9d3MmZW5jcnlwdGlvbj1ub25lJmhvc3Q9aW4xLnhuLS1taXJyb3JzLW9qOGttNTJ0eGM3ZC5jb20mcGF0aD0lMkZ5bSUyRmluMSZzZWN1cml0eT10bHMmc25pPWluMS54bi0tbWlycm9ycy1vajhrbTUydHhjN2QuY29tJmZwPWNocm9tZSZwYWNrZXRFbmNvZGluZz14dWRwI01haGRpLSVGMCU5RiU4NyVBRSVGMCU5RiU4NyVCMzAzCmh5MjovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxNjguNzUuNjguMTcyOjQ0My8/bXBvcnQ9NTEwMDAtNTMwMDAmaW5zZWN1cmU9MSZzbmk9Y24uY3JlbWVkZWxhbWVyLmNvbSNNYWhkaS0lRjAlOUYlODclQTclRjAlOUYlODclQjcwMQpoeTI6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTQ0LjIyLjE5Ny4yODo0NDMvP21wb3J0PTUxMDAwLTUzMDAwJmluc2VjdXJlPTEmc25pPWNuLmNyZW1lZGVsYW1lci5jb20jTWFoZGktJUYwJTlGJTg3JUE3JUYwJTlGJTg3JUI3MDIKdmxlc3M6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTA0LjE3LjE4Ni43Mzo0NDMvP3R5cGU9d3MmZW5jcnlwdGlvbj1ub25lJmhvc3Q9dXMxLnhuLS1taXJyb3JzLW9qOGttNTJ0eGM3ZC5jb20mcGF0aD0lMkZ5bSUyRnVzMSZzZWN1cml0eT10bHMmc25pPXVzMS54bi0tbWlycm9ycy1vajhrbTUydHhjN2QuY29tJmZwPWNocm9tZSZwYWNrZXRFbmNvZGluZz14dWRwI01haGRpLSVGMCU5RiU4NyVCQSVGMCU5RiU4NyVCODAxCnZsZXNzOi8vOTA4NTk3YzUtMmI1Ny00ODE1LWExOWItY2VhNGQ0ODcxZTNlQDEwNC4xNi4xOTkuOTA6NDQzLz90eXBlPXdzJmVuY3J5cHRpb249bm9uZSZob3N0PXVzMi54bi0tbWlycm9ycy1vajhrbTUydHhjN2QuY29tJnBhdGg9JTJGeW0lMkZ1czImc2VjdXJpdHk9dGxzJnNuaT11czIueG4tLW1pcnJvcnMtb2o4a201MnR4YzdkLmNvbSZmcD1jaHJvbWUmcGFja2V0RW5jb2Rpbmc9eHVkcCNNYWhkaS0lRjAlOUYlODclQkElRjAlOUYlODclQjgwMgpoeTI6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTI5LjE1OS45Ny4yMDY6NDQzLz9tcG9ydD01MTAwMC01MzAwMCZpbnNlY3VyZT0xJnNuaT1jbi5jcmVtZWRlbGFtZXIuY29tI01haGRpLSVGMCU5RiU4NyVCQSVGMCU5RiU4NyVCODAzCmh5MjovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxNDEuMTQ4LjE4Mi4yOjQ0My8/bXBvcnQ9NTEwMDAtNTMwMDAmaW5zZWN1cmU9MSZzbmk9Y24uY3JlbWVkZWxhbWVyLmNvbSNNYWhkaS0lRjAlOUYlODclQkElRjAlOUYlODclQjgwNApoeTI6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTI5LjE1NC41My4yMzI6NDQzLz9tcG9ydD01MTAwMC01MzAwMCZpbnNlY3VyZT0xJnNuaT1jbi5jcmVtZWRlbGFtZXIuY29tI01haGRpLSVGMCU5RiU4NyVCMCVGMCU5RiU4NyVCNzAxCmh5MjovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxOTIuOS4xNjUuNDA6NDQzLz9tcG9ydD01MTAwMC01MzAwMCZpbnNlY3VyZT0xJnNuaT1jbi5jcmVtZWRlbGFtZXIuY29tI01haGRpLSVGMCU5RiU4NyVBNiVGMCU5RiU4NyVCQTAxCmh5MjovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxOTIuOS4xNzkuMTQwOjQ0My8/bXBvcnQ9NTEwMDAtNTMwMDAmaW5zZWN1cmU9MSZzbmk9Y24uY3JlbWVkZWxhbWVyLmNvbSNNYWhkaS0lRjAlOUYlODclQTYlRjAlOUYlODclQkEwMgp2bGVzczovLzkwODU5N2M1LTJiNTctNDgxNS1hMTliLWNlYTRkNDg3MWUzZUAxMDQuMTkuMzguMTgyOjQ0My8/dHlwZT13cyZlbmNyeXB0aW9uPW5vbmUmaG9zdD1hdTEueG4tLW1pcnJvcnMtb2o4a201MnR4YzdkLmNvbSZwYXRoPSUyRnltJTJGYXUxJnNlY3VyaXR5PXRscyZzbmk9YXUxLnhuLS1taXJyb3JzLW9qOGttNTJ0eGM3ZC5jb20mZnA9Y2hyb21lJnBhY2tldEVuY29kaW5nPXh1ZHAjTWFoZGktJUYwJTlGJTg3JUE2JUYwJTlGJTg3JUJBMDMKdmxlc3M6Ly85MDg1OTdjNS0yYjU3LTQ4MTUtYTE5Yi1jZWE0ZDQ4NzFlM2VAMTA0LjE5LjM5LjEzMjo0NDMvP3R5cGU9d3MmZW5jcnlwdGlvbj1ub25lJmhvc3Q9YXUyLnhuLS1taXJyb3JzLW9qOGttNTJ0eGM3ZC5jb20mcGF0aD0lMkZ5bSUyRmF1MiZzZWN1cml0eT10bHMmc25pPWF1Mi54bi0tbWlycm9ycy1vajhrbTUydHhjN2QuY29tJmZwPWNocm9tZSZwYWNrZXRFbmNvZGluZz14dWRwI01haGRpLSVGMCU5RiU4NyVBNiVGMCU5RiU4NyVCQTA0
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "tls://8.8.4.4",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "8.8.8.8",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      },
+      {
+        "rule_set": [
+          "geosite-ads",
+          "geosite-malware",
+          "geosite-phishing",
+          "geosite-cryptominers",
+          "geoip-malware",
+          "geoip-phishing"
+        ],
+        "server": "dns-block"
+      },
+      {
+        "domain_suffix": ".ir",
+        "server": "dns-direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "server": "dns-direct"
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.17.148.22",
+        "104.17.147.22",
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "gvisor",
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 12334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 16450
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "Mahdi-🇫🇷01 § 0",
+        "Mahdi-🇰🇷01 § 1",
+        "Mahdi-🇮🇳01 § 2",
+        "Mahdi-🇮🇳02 § 3",
+        "Mahdi-🇮🇳03 § 4",
+        "Mahdi-🇧🇷01 § 5",
+        "Mahdi-🇧🇷02 § 6",
+        "Mahdi-🇺🇸01 § 7",
+        "Mahdi-🇺🇸02 § 8",
+        "Mahdi-🇺🇸03 § 9",
+        "Mahdi-🇺🇸04 § 10",
+        "Mahdi-🇦🇺01 § 11",
+        "Mahdi-🇦🇺02 § 12",
+        "Mahdi-🇦🇺03 § 13",
+        "Mahdi-🇦🇺04 § 14"
+      ],
+      "default": "auto",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "Mahdi-🇫🇷01 § 0",
+        "Mahdi-🇰🇷01 § 1",
+        "Mahdi-🇮🇳01 § 2",
+        "Mahdi-🇮🇳02 § 3",
+        "Mahdi-🇮🇳03 § 4",
+        "Mahdi-🇧🇷01 § 5",
+        "Mahdi-🇧🇷02 § 6",
+        "Mahdi-🇺🇸01 § 7",
+        "Mahdi-🇺🇸02 § 8",
+        "Mahdi-🇺🇸03 § 9",
+        "Mahdi-🇺🇸04 § 10",
+        "Mahdi-🇦🇺01 § 11",
+        "Mahdi-🇦🇺02 § 12",
+        "Mahdi-🇦🇺03 § 13",
+        "Mahdi-🇦🇺04 § 14"
+      ],
+      "url": "http://cp.cloudflare.com",
+      "interval": "10m0s",
+      "tolerance": 1,
+      "idle_timeout": "30m0s",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇫🇷01 § 0",
+      "server": "104.19.39.122",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "fr1.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/fr1",
+        "headers": {
+          "Host": "fr1.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇰🇷01 § 1",
+      "server": "129.154.53.232",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇮🇳01 § 2",
+      "server": "140.245.27.220",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇮🇳02 § 3",
+      "server": "141.148.222.181",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇮🇳03 § 4",
+      "server": "104.19.34.103",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "in1.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/in1",
+        "headers": {
+          "Host": "in1.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇧🇷01 § 5",
+      "server": "168.75.68.172",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇧🇷02 § 6",
+      "server": "144.22.197.28",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇺🇸01 § 7",
+      "server": "104.17.186.73",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "us1.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/us1",
+        "headers": {
+          "Host": "us1.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇺🇸02 § 8",
+      "server": "104.16.199.90",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "us2.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/us2",
+        "headers": {
+          "Host": "us2.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇺🇸03 § 9",
+      "server": "129.159.97.206",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇺🇸04 § 10",
+      "server": "141.148.182.2",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇦🇺01 § 11",
+      "server": "192.9.165.40",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mahdi-🇦🇺02 § 12",
+      "server": "192.9.179.140",
+      "server_port": 443,
+      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "cn.cremedelamer.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇦🇺03 § 13",
+      "server": "104.19.38.182",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "au1.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/au1",
+        "headers": {
+          "Host": "au1.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mahdi-🇦🇺04 § 14",
+      "server": "104.19.39.132",
+      "server_port": 443,
+      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "au2.xn--mirrors-oj8km52txc7d.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ym/au2",
+        "headers": {
+          "Host": "au2.xn--mirrors-oj8km52txc7d.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-30",
+        "sleep": "2-8"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "tun-in",
+        "package_name": "app.hiddify.com",
+        "outbound": "bypass"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "rule_set": [
+          "geosite-ads",
+          "geosite-malware",
+          "geosite-phishing",
+          "geosite-cryptominers",
+          "geoip-malware",
+          "geoip-phishing"
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": ".ir",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geosite-ads",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-category-ads-all.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-malware",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-malware.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-phishing",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-phishing.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-cryptominers",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geosite-cryptominers.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-phishing",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-phishing.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-malware",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/block/geoip-malware.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:16756",
+      "secret": "lSA-8GzsWpIlovFX"
+    }
+  }
+}
