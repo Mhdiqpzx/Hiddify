@@ -39,6 +39,17 @@
     ],
     "rules": [
       {
+        "domain": [
+          "economist.com",
+          "indeed.com",
+          "braze.com",
+          "vinted.fr",
+          "autotrader.co.uk",
+          "sublinkhiddify.makingirangreatagain.com"
+        ],
+        "server": "dns-direct"
+      },
+      {
         "domain": "cp.cloudflare.com",
         "server": "dns-remote",
         "rewrite_ttl": 3000
@@ -69,12 +80,12 @@
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
-        "104.17.148.22",
         "104.17.147.22",
+        "104.17.148.22",
         "188.114.96.3",
         "188.114.97.3",
-        "2a06:98c1:3120::3",
-        "2a06:98c1:3121::3"
+        "2a06:98c1:3120::6",
+        "2a06:98c1:3121::6"
       ]
     },
     "independent_cache": true
@@ -113,21 +124,36 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "Mahdi-🇫🇷01 § 0",
-        "Mahdi-🇰🇷01 § 1",
-        "Mahdi-🇮🇳01 § 2",
-        "Mahdi-🇮🇳02 § 3",
-        "Mahdi-🇮🇳03 § 4",
-        "Mahdi-🇧🇷01 § 5",
-        "Mahdi-🇧🇷02 § 6",
-        "Mahdi-🇺🇸01 § 7",
-        "Mahdi-🇺🇸02 § 8",
-        "Mahdi-🇺🇸03 § 9",
-        "Mahdi-🇺🇸04 § 10",
-        "Mahdi-🇦🇺01 § 11",
-        "Mahdi-🇦🇺02 § 12",
-        "Mahdi-🇦🇺03 § 13",
-        "Mahdi-🇦🇺04 § 14"
+        "Mhdi-1 § 0",
+        "Mhdi-2 § 1",
+        "Mhdi-3 § 2",
+        "Mhdi-4 § 3",
+        "Mhdi-5 § 4",
+        "Mhdi-6 § 5",
+        "Mhdi-7 § 6",
+        "Mhdi-8 § 7",
+        "Mhdi-9 § 8",
+        "Mhdi-10 § 9",
+        "Mhdi-11 § 10",
+        "Mhdi-12 § 11",
+        "Mhdi-13 § 12",
+        "Mhdi-14 § 13",
+        "Mhdi-15 § 14",
+        "Mhdi-16 § 15",
+        "Mhdi-17 § 16",
+        "Mhdi-18 § 17",
+        "Mhdi-19 § 18",
+        "Mhdi-20 § 19",
+        "Mhdi-21 § 20",
+        "Mhdi-22 § 21",
+        "Mhdi-23 § 22",
+        "Mhdi-24 § 23",
+        "Mhdi-25 § 24",
+        "Mhdi-26 § 25",
+        "Mhdi-27 § 26",
+        "Mhdi-28 § 27",
+        "Mhdi-29 § 28",
+        "Mhdi-30 § 29"
       ],
       "default": "auto",
       "interrupt_exist_connections": true
@@ -136,21 +162,36 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "Mahdi-🇫🇷01 § 0",
-        "Mahdi-🇰🇷01 § 1",
-        "Mahdi-🇮🇳01 § 2",
-        "Mahdi-🇮🇳02 § 3",
-        "Mahdi-🇮🇳03 § 4",
-        "Mahdi-🇧🇷01 § 5",
-        "Mahdi-🇧🇷02 § 6",
-        "Mahdi-🇺🇸01 § 7",
-        "Mahdi-🇺🇸02 § 8",
-        "Mahdi-🇺🇸03 § 9",
-        "Mahdi-🇺🇸04 § 10",
-        "Mahdi-🇦🇺01 § 11",
-        "Mahdi-🇦🇺02 § 12",
-        "Mahdi-🇦🇺03 § 13",
-        "Mahdi-🇦🇺04 § 14"
+        "Mhdi-1 § 0",
+        "Mhdi-2 § 1",
+        "Mhdi-3 § 2",
+        "Mhdi-4 § 3",
+        "Mhdi-5 § 4",
+        "Mhdi-6 § 5",
+        "Mhdi-7 § 6",
+        "Mhdi-8 § 7",
+        "Mhdi-9 § 8",
+        "Mhdi-10 § 9",
+        "Mhdi-11 § 10",
+        "Mhdi-12 § 11",
+        "Mhdi-13 § 12",
+        "Mhdi-14 § 13",
+        "Mhdi-15 § 14",
+        "Mhdi-16 § 15",
+        "Mhdi-17 § 16",
+        "Mhdi-18 § 17",
+        "Mhdi-19 § 18",
+        "Mhdi-20 § 19",
+        "Mhdi-21 § 20",
+        "Mhdi-22 § 21",
+        "Mhdi-23 § 22",
+        "Mhdi-24 § 23",
+        "Mhdi-25 § 24",
+        "Mhdi-26 § 25",
+        "Mhdi-27 § 26",
+        "Mhdi-28 § 27",
+        "Mhdi-29 § 28",
+        "Mhdi-30 § 29"
       ],
       "url": "http://cp.cloudflare.com",
       "interval": "10m0s",
@@ -160,13 +201,171 @@
     },
     {
       "type": "vless",
-      "tag": "Mahdi-🇫🇷01 § 0",
-      "server": "104.19.39.122",
+      "tag": "Mhdi-1 § 0",
+      "server": "vinted.fr",
       "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
       "tls": {
         "enabled": true,
-        "server_name": "fr1.xn--mirrors-oj8km52txc7d.com",
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "http/1.1",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-2 § 1",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-3 § 2",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "Mhdi-4 § 3",
+      "server": "sublinkhiddify.makingirangreatagain.com",
+      "server_port": 19458,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "NWI1NWJjOWYyNWRkNDdlYjlmMDMxYTc2N2M5YmU0YjU=:MTVjMjQ5MWEwMWQyNGQzNmI0YzQ3MDk1NjgyMzY4Y2Q="
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-5 § 4",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "h3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-6 § 5",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mhdi-7 § 6",
+      "server": "207.148.22.93",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      },
+      "password": "9bb452b106ffc217",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mhdi-8 § 7",
+      "server": "66.135.11.68",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "13f7ba5f"
+      },
+      "password": "4e9ee29b39a28277",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-9 § 8",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-10 § 9",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -174,59 +373,39 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/ym/fr1",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
         "headers": {
-          "Host": "fr1.xn--mirrors-oj8km52txc7d.com"
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇰🇷01 § 1",
-      "server": "129.154.53.232",
+      "type": "trojan",
+      "tag": "Mhdi-11 § 10",
+      "server": "indeed.com",
       "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
       "tls": {
         "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇮🇳01 § 2",
-      "server": "140.245.27.220",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇮🇳02 § 3",
-      "server": "141.148.222.181",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "h3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "Mahdi-🇮🇳03 § 4",
-      "server": "104.19.34.103",
+      "tag": "Mhdi-12 § 11",
+      "server": "autotrader.co.uk",
       "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
       "tls": {
         "enabled": true,
-        "server_name": "in1.xn--mirrors-oj8km52txc7d.com",
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -234,153 +413,9 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/ym/in1",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
         "headers": {
-          "Host": "in1.xn--mirrors-oj8km52txc7d.com"
-        },
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇧🇷01 § 5",
-      "server": "168.75.68.172",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇧🇷02 § 6",
-      "server": "144.22.197.28",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Mahdi-🇺🇸01 § 7",
-      "server": "104.17.186.73",
-      "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "us1.xn--mirrors-oj8km52txc7d.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ym/us1",
-        "headers": {
-          "Host": "us1.xn--mirrors-oj8km52txc7d.com"
-        },
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "Mahdi-🇺🇸02 § 8",
-      "server": "104.16.199.90",
-      "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "us2.xn--mirrors-oj8km52txc7d.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ym/us2",
-        "headers": {
-          "Host": "us2.xn--mirrors-oj8km52txc7d.com"
-        },
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇺🇸03 § 9",
-      "server": "129.159.97.206",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇺🇸04 § 10",
-      "server": "141.148.182.2",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇦🇺01 § 11",
-      "server": "192.9.165.40",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-🇦🇺02 § 12",
-      "server": "192.9.179.140",
-      "server_port": 443,
-      "password": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "cn.cremedelamer.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Mahdi-🇦🇺03 § 13",
-      "server": "104.19.38.182",
-      "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "au1.xn--mirrors-oj8km52txc7d.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ym/au1",
-        "headers": {
-          "Host": "au1.xn--mirrors-oj8km52txc7d.com"
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
@@ -388,13 +423,105 @@
     },
     {
       "type": "vless",
-      "tag": "Mahdi-🇦🇺04 § 14",
-      "server": "104.19.39.132",
+      "tag": "Mhdi-13 § 12",
+      "server": "indeed.com",
       "server_port": 443,
-      "uuid": "908597c5-2b57-4815-a19b-cea4d4871e3e",
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
       "tls": {
         "enabled": true,
-        "server_name": "au2.xn--mirrors-oj8km52txc7d.com",
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "http/1.1",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-14 § 13",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-15 § 14",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "h3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-16 § 15",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-17 § 16",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "h3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-18 § 17",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -402,11 +529,254 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/ym/au2",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
         "headers": {
-          "Host": "au2.xn--mirrors-oj8km52txc7d.com"
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-19 § 18",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "h3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-20 § 19",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-21 § 20",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-22 § 21",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "http/1.1",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-23 § 22",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-24 § 23",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "alpn": "http/1.1",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-25 § 24",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-26 § 25",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Mhdi-27 § 26",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Mhdi-28 § 27",
+      "server": "70.34.207.153",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "d2648ec2"
+      },
+      "password": "18240b2dfdd76484",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-29 § 28",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "Mhdi-30 § 29",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
       },
       "packet_encoding": "xudp"
     },
@@ -543,7 +913,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:16756",
-      "secret": "lSA-8GzsWpIlovFX"
+      "secret": "xKIIYiI2puN2MpiI"
     }
   }
 }
