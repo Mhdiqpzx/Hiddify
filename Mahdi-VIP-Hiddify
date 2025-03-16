@@ -1,950 +1,703 @@
 {
   "log": {
-    "disabled": true,
-    "level": "panic"
+    "level": "warn",
+    "timestamp": true
   },
   "dns": {
     "servers": [
       {
-        "tag": "Internet-dns",
-        "address": "tcp://94.140.14.14",
-        "strategy": "prefer_ipv4",
-        "detour": "Mahdi-VIP"
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
       },
       {
-        "tag": "Best Latency-dns",
-        "address": "fakeip",
-        "strategy": "prefer_ipv4",
-        "detour": "Mahdi-VIP"
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
       },
       {
-        "tag": "direct-dns",
-        "address": "udp://8.8.8.8",
-        "strategy": "prefer_ipv4",
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
         "detour": "direct"
       },
       {
-        "tag": "block-dns",
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
         "address": "rcode://success"
       }
     ],
     "rules": [
       {
-        "domain_suffix": [
-          "h2.88981401.xyz",
-          "a2.dgi000.store",
-          "a3.dgi000.store"
+        "domain": [
+          "xg.laosijicc.top",
+          "xjp.laosijicc.top"
         ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
+        "server": "dns-direct"
       },
       {
-        "domain": "www.google.com",
-        "server": "Internet-dns",
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
         "rewrite_ttl": 3000
-      },
-      {
-        "network": "udp",
-        "port": 443,
-        "server": "block-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "clash_mode": "Mahdi-VIP-Hiddify",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "domain_regex": [
-          ".*\\.ir$",
-          ".*\\.xn--mgba3a4f16a$"
-        ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": "geosite-ir",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Mahdi-VIP-Hiddify",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Mahdi-VIP-Hiddify",
-        "server": "Best Latency-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "direct",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
       }
     ],
-    "final": "Internet-dns",
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.17.147.22",
+        "104.17.148.22",
+        "188.114.97.0",
+        "188.114.96.0",
+        "2a06:98c1:3120::",
+        "2a06:98c1:3121::"
+      ]
     },
-    "strategy": "prefer_ipv4",
-    "disable_expire": true
+    "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
       "mtu": 9000,
-      "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
+      "inet4_address": "172.19.0.1/28",
       "auto_route": true,
       "strict_route": true,
-      "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
+      "endpoint_independent_nat": true,
+      "stack": "gvisor",
+      "sniff": true
     },
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 2080,
+      "listen": "127.0.0.1",
+      "listen_port": 12334,
       "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
+      "sniff_override_destination": true
     },
     {
       "type": "direct",
       "tag": "dns-in",
-      "listen": "0.0.0.0",
-      "listen_port": 6450,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4",
-      "override_address": "8.8.8.8",
-      "override_port": 53
+      "listen": "127.0.0.1",
+      "listen_port": 16450
     }
   ],
   "outbounds": [
     {
       "type": "selector",
-      "tag": "Mahdi-VIP-Hiddify",
+      "tag": "select",
       "outbounds": [
-        "Mahdi-VIP-0",
-                "Mahdi-VIP-00",
-                "Mahdi-VIP",
-                "Mahdi-VIP-1",
-                "Mahdi-VIP-2",
-                "Mahdi-VIP-3",
-                "Mahdi-VIP-4",
-                "Mahdi-VIP-5",
-                "Mahdi-VIP-6",
-                "Mahdi-VIP-7",
-                "Mahdi-VIP-8",
-                "Mahdi-VIP-9",
-                "Mahdi-VIP-10",
-                "Mahdi-VIP-11",
-                "Mahdi-VIP-12",
-                "Mahdi-VIP-13",
-                "Mahdi-VIP-14",
-                "Mahdi-VIP-15",
-                "Mahdi-VIP-16",
-                "Mahdi-VIP-17",
-                "Mahdi-VIP-18",
-                "Mahdi-VIP-19",
-                "Mahdi-VIP-20",
-                "Mahdi-VIP-21",
-                "Mahdi-VIP-22",
-                "Mahdi-VIP-23",
-                "Mahdi-VIP-24",
-                "Mahdi-VIP-25",
-                "Mahdi-VIP-26",
-                "Mahdi-VIP-27",
-                "Mahdi-VIP-28",
-                "Mahdi-VIP-29",
-                "Mahdi-VIP-30",
-                "Mahdi-VIP-31",
-                "Mahdi-VIP-32",
-                "Mahdi-VIP-33",
-                "Mahdi-VIP-34",
-                "Mahdi-VIP-35",
-                "Mahdi-VIP-36",
-                "Mahdi-VIP-37",
-                "Mahdi-VIP-38",
-                "Mahdi-VIP-39",
-                "Mahdi-VIP-40",
-                "Mahdi-VIP-41",
-                "Mahdi-VIP-42",
-                "Mahdi-VIP-43",
-                "Mahdi-VIP-44",
-                "Mahdi-VIP-45",
-                "Mahdi-VIP-46",
-                "Mahdi-VIP-47",
-                "Mahdi-VIP-48",
-                "Mahdi-VIP-49",
-                "Mahdi-VIP-50",
-                "Mahdi-VIP-51",
-                "Mahdi-VIP-52"
-      ]
+        "auto",
+        "🇲🇩MΛHdi",
+        "🇳🇱MΛHdi",
+        "🇳🇴MΛHdi",
+        "🇵🇹MΛHdi",
+        "🇩🇰MΛHdi",
+        "🇧🇪MΛHdi",
+        "🇨🇦MΛHdi",
+        "🇺🇦MΛHdi",
+        "🇵🇱MΛHdi",
+        "🇦🇹MΛHdi",
+        "🇭🇰MΛHdi",
+        "🇱🇹MΛHdi",
+        "🇮🇹MΛHdi",
+        "🇫🇷MΛHdi",
+        "🇷🇺MΛHdi",
+        "🇩🇪MΛHdi",
+        "🇺🇸MΛHdi",
+        "🇮🇱MΛHdi",
+        "🇬🇧MΛHdi",
+        "🇪🇪MΛHdi",
+        "🇬🇷MΛHdi",
+        "🇮🇪MΛHdi",
+        "🇨🇭MΛHdi",
+        "🇭🇺MΛHdi",
+        "🇷🇴MΛHdi",
+        "🇹🇷MΛHdi",
+        "🇪🇸MΛHdi",
+        "🇷🇸MΛHdi",
+        "🇫🇮MΛHdi",
+        "🇸🇪MΛHdi",
+        "🇧🇬MΛHdi",
+        "🇨🇿MΛHdi",
+        "🇸🇰MΛHdi",
+        "🇱🇻MΛHdi",
+        "🇮🇸MΛHdi",
+        "🇯🇵MΛHdi",
+        "🇧🇷MΛHdi",
+        "🇸🇮MΛHdi",
+        "🇦🇲MΛHdi",
+        "🇲🇰MΛHdi",
+        "🇱🇺MΛHdi",
+        "🇰🇷MΛHdi",
+        "🇭🇷MΛHdi"
+      ],
+      "default": "auto",
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "Mahdi-VIP-Hiddify",
+      "tag": "auto",
       "outbounds": [
-
-                "Mahdi-VIP-0",
-                "Mahdi-VIP-00",
-                "Mahdi-VIP",
-                "Mahdi-VIP-1",
-                "Mahdi-VIP-2",
-                "Mahdi-VIP-3",
-                "Mahdi-VIP-4",
-                "Mahdi-VIP-5",
-                "Mahdi-VIP-6",
-                "Mahdi-VIP-7",
-                "Mahdi-VIP-8",
-                "Mahdi-VIP-9",
-                "Mahdi-VIP-10",
-                "Mahdi-VIP-11",
-                "Mahdi-VIP-12",
-                "Mahdi-VIP-13",
-                "Mahdi-VIP-14",
-                "Mahdi-VIP-15",
-                "Mahdi-VIP-16",
-                "Mahdi-VIP-17",
-                "Mahdi-VIP-18",
-                "Mahdi-VIP-19",
-                "Mahdi-VIP-20",
-                "Mahdi-VIP-21",
-                "Mahdi-VIP-22",
-                "Mahdi-VIP-23",
-                "Mahdi-VIP-24",
-                "Mahdi-VIP-25",
-                "Mahdi-VIP-26",
-                "Mahdi-VIP-27",
-                "Mahdi-VIP-28",
-                "Mahdi-VIP-29",
-                "Mahdi-VIP-30",
-                "Mahdi-VIP-31",
-                "Mahdi-VIP-32",
-                "Mahdi-VIP-33",
-                "Mahdi-VIP-34",
-                "Mahdi-VIP-35",
-                "Mahdi-VIP-36",
-                "Mahdi-VIP-37",
-                "Mahdi-VIP-38",
-                "Mahdi-VIP-39",
-                "Mahdi-VIP-40",
-                "Mahdi-VIP-41",
-                "Mahdi-VIP-42",
-                "Mahdi-VIP-43",
-                "Mahdi-VIP-44",
-                "Mahdi-VIP-45",
-                "Mahdi-VIP-46",
-                "Mahdi-VIP-47",
-                "Mahdi-VIP-48",
-                "Mahdi-VIP-49",
-                "Mahdi-VIP-50",
-                "Mahdi-VIP-51",
-                "Mahdi-VIP-52"
+        "🇲🇩MΛHdi",
+        "🇳🇱MΛHdi",
+        "🇳🇴MΛHdi",
+        "🇵🇹MΛHdi",
+        "🇩🇰MΛHdi",
+        "🇧🇪MΛHdi",
+        "🇨🇦MΛHdi",
+        "🇺🇦MΛHdi",
+        "🇵🇱MΛHdi",
+        "🇦🇹MΛHdi",
+        "🇭🇰MΛHdi",
+        "🇱🇹MΛHdi",
+        "🇮🇹MΛHdi",
+        "🇫🇷MΛHdi",
+        "🇷🇺MΛHdi",
+        "🇩🇪MΛHdi",
+        "🇺🇸MΛHdi",
+        "🇮🇱MΛHdi",
+        "🇬🇧MΛHdi",
+        "🇪🇪MΛHdi",
+        "🇬🇷MΛHdi",
+        "🇮🇪MΛHdi",
+        "🇨🇭MΛHdi",
+        "🇭🇺MΛHdi",
+        "🇷🇴MΛHdi",
+        "🇹🇷MΛHdi",
+        "🇪🇸MΛHdi",
+        "🇷🇸MΛHdi",
+        "🇫🇮MΛHdi",
+        "🇸🇪MΛHdi",
+        "🇧🇬MΛHdi",
+        "🇨🇿MΛHdi",
+        "🇸🇰MΛHdi",
+        "🇱🇻MΛHdi",
+        "🇮🇸MΛHdi",
+        "🇯🇵MΛHdi",
+        "🇧🇷MΛHdi",
+        "🇸🇮MΛHdi",
+        "🇦🇲MΛHdi",
+        "🇲🇰MΛHdi",
+        "🇱🇺MΛHdi",
+        "🇰🇷MΛHdi",
+        "🇭🇷MΛHdi"
       ],
-      "url": "http://www.google.com/generate_204",
-      "interval": "3m0s",
+      "url": "http://cp.cloudflare.com",
+      "interval": "10m0s",
       "tolerance": 1,
-      "idle_timeout": "9m0s"
+      "idle_timeout": "30m0s",
+      "interrupt_exist_connections": true
     },
-
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-0",
-      "domain_strategy": "prefer_ipv4",
-      "server": "all-v4.dgi000.store",
+    {
+      "type": "trojan",
+      "tag": "🇲🇩MΛHdi",
+      "server": "morse-stank-most.stark-industries.solutions",
       "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
-      },
-      "password": "@azadi_az_inja_migzare",
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "all-v4.dgi000.store",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AEb+DQBCAAAgACAzj8BolIG68jc1kgCeQ2Fg2cDQcw5KvTycY6MwW6kMdAAIAAEA",
-            "AQABAAMAD0E0LmRnaTAwMC5zdG9yZQAA",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
+        "server_name": "morse-stank-most.stark-industries.solutions"
       }
     },
-   {
-      "type": "vless",
-      "tag": "Mahdi-VIP-00",
-      "server": "for-real.hpcode.ir",
-      "server_port": 44441,
-      "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
-      "transport": {
-        "type": "http",
-        "host": "me.com",
-        "path": "/@JavidnamanIran/",
-        "method": "GET"
-      },
-      "packet_encoding": "xudp"
-    },
-    
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-1",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "30fe86c4-0db7-4a09-b1d0-b4a06f2e87ab",
+    {
+      "type": "trojan",
+      "tag": "🇳🇱MΛHdi",
+      "server": "acre-cable-skip.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "acre-cable-skip.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-2",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "30fe86c4-0db7-4a09-b1d0-b4a06f2e87ab",
+      "type": "trojan",
+      "tag": "🇳🇴MΛHdi",
+      "server": "copy-wifi-twins.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "copy-wifi-twins.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-3",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "30fe86c4-0db7-4a09-b1d0-b4a06f2e87ab",
+    {
+      "type": "trojan",
+      "tag": "🇵🇹MΛHdi",
+      "server": "eats-rigor-judge.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "eats-rigor-judge.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-4",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "30fe86c4-0db7-4a09-b1d0-b4a06f2e87ab",
+      "type": "trojan",
+      "tag": "🇩🇰MΛHdi",
+      "server": "wispy-crib-net.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "wispy-crib-net.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-5",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "182422f0-32a7-45d6-a2c2-60d8b58d1b74",
+    {
+      "type": "trojan",
+      "tag": "🇧🇪MΛHdi",
+      "server": "chop-wrist-bud.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "chop-wrist-bud.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-6",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "182422f0-32a7-45d6-a2c2-60d8b58d1b74",
+      "type": "trojan",
+      "tag": "🇨🇦MΛHdi",
+      "server": "both-cramp-banjo.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "both-cramp-banjo.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-7",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "97b3a835-3d52-485e-bb0b-eb2641f31570",
+    {
+      "type": "trojan",
+      "tag": "🇺🇦MΛHdi",
+      "server": "keep-chess-self.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "keep-chess-self.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-8",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "97b3a835-3d52-485e-bb0b-eb2641f31570",
+      "type": "trojan",
+      "tag": "🇵🇱MΛHdi",
+      "server": "tag-frown-lying.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "tag-frown-lying.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-9",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "759fc428-a172-49e2-b765-8abfb0e9ad47",
+    {
+      "type": "trojan",
+      "tag": "🇦🇹MΛHdi",
+      "server": "cushy-coil-chaos.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "cushy-coil-chaos.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-10",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "759fc428-a172-49e2-b765-8abfb0e9ad47",
+      "type": "trojan",
+      "tag": "🇭🇰MΛHdi",
+      "server": "skate-whole-old.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "skate-whole-old.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-11",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "759fc428-a172-49e2-b765-8abfb0e9ad47",
+    {
+      "type": "trojan",
+      "tag": "🇱🇹MΛHdi",
+      "server": "stem-entry-gala.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "stem-entry-gala.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-12",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "759fc428-a172-49e2-b765-8abfb0e9ad47",
+      "type": "trojan",
+      "tag": "🇮🇹MΛHdi",
+      "server": "boss-tutu-fled.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "boss-tutu-fled.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-13",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "1ca9f4a7-5e4f-4d3c-8a27-c3b2ecdb958d",
+    {
+      "type": "trojan",
+      "tag": "🇫🇷MΛHdi",
+      "server": "cadet-woven-march.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "cadet-woven-march.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-14",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "1ca9f4a7-5e4f-4d3c-8a27-c3b2ecdb958d",
+      "type": "trojan",
+      "tag": "🇷🇺MΛHdi",
+      "server": "slaw-hush-agile.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "slaw-hush-agile.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-15",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "0ab5edc5-2416-4575-bf0b-51486d0ff428",
+    {
+      "type": "trojan",
+      "tag": "🇩🇪MΛHdi",
+      "server": "share-basil-gills.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "share-basil-gills.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-16",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "0ab5edc5-2416-4575-bf0b-51486d0ff428",
+      "type": "trojan",
+      "tag": "🇺🇸MΛHdi",
+      "server": "patch-lint-hazel.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "patch-lint-hazel.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-17",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "ebbf94e5-bf66-4de6-a4fa-454d4563cb6c",
+    {
+      "type": "trojan",
+      "tag": "🇮🇱MΛHdi",
+      "server": "bring-glove-shine.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "bring-glove-shine.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-18",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "ebbf94e5-bf66-4de6-a4fa-454d4563cb6c",
+      "type": "trojan",
+      "tag": "🇬🇧MΛHdi",
+      "server": "ankle-straw-untie.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "ankle-straw-untie.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-19",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "a872d668-1366-4e61-9442-611d2f68a7c4",
+    {
+      "type": "trojan",
+      "tag": "🇪🇪MΛHdi",
+      "server": "tag-stump-ranch.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "tag-stump-ranch.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-20",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "a872d668-1366-4e61-9442-611d2f68a7c4",
+      "type": "trojan",
+      "tag": "🇬🇷MΛHdi",
+      "server": "stem-omen-area.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "stem-omen-area.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-21",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "04ee46b1-a0af-4ba0-aa02-3206f4bc6b87",
+    {
+      "type": "trojan",
+      "tag": "🇮🇪MΛHdi",
+      "server": "slang-pecan-lever.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "slang-pecan-lever.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-22",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "04ee46b1-a0af-4ba0-aa02-3206f4bc6b87",
+      "type": "trojan",
+      "tag": "🇨🇭MΛHdi",
+      "server": "crazy-grope-jeep.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "crazy-grope-jeep.stark-industries.solutions"
       }
     },
-{
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-23",
-      "server": "107.175.185.55",
-      "server_port": 11000,
-      "password": "47a064e7-4a2b-40c5-b4c0-cec8d3956d7b",
+    {
+      "type": "trojan",
+      "tag": "🇭🇺MΛHdi",
+      "server": "sleep-boots-motor.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "sleep-boots-motor.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-24",
-      "server": "140.245.35.137",
-      "server_port": 11100,
-      "password": "47a064e7-4a2b-40c5-b4c0-cec8d3956d7b",
+      "type": "trojan",
+      "tag": "🇷🇴MΛHdi",
+      "server": "guy-trace-lyric.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "guy-trace-lyric.stark-industries.solutions"
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-25",
-      "server": "hk-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "4459a22c-1a53-4099-b8b5-73bc1a2c49a1",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-26",
-      "server": "hk-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "4459a22c-1a53-4099-b8b5-73bc1a2c49a1",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-27",
-      "server": "sg-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "4459a22c-1a53-4099-b8b5-73bc1a2c49a1",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-28",
-      "server": "ru-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "4459a22c-1a53-4099-b8b5-73bc1a2c49a1",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-29",
-      "server": "tr-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "4459a22c-1a53-4099-b8b5-73bc1a2c49a1",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-30",
-      "server": "hk-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "93b48996-9ab5-4ea6-a7fa-606cfa2f1d91",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-31",
-      "server": "hk-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "93b48996-9ab5-4ea6-a7fa-606cfa2f1d91",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-32",
-      "server": "sg-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "93b48996-9ab5-4ea6-a7fa-606cfa2f1d91",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-33",
-      "server": "ru-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "93b48996-9ab5-4ea6-a7fa-606cfa2f1d91",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-34",
-      "server": "tr-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "93b48996-9ab5-4ea6-a7fa-606cfa2f1d91",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-35",
-      "server": "hk-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "f7c0b872-c05d-49e7-88a7-b880ac2a7c3d",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-36",
-      "server": "hk-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "f7c0b872-c05d-49e7-88a7-b880ac2a7c3d",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-37",
-      "server": "sg-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "f7c0b872-c05d-49e7-88a7-b880ac2a7c3d",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-38",
-      "server": "ru-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "f7c0b872-c05d-49e7-88a7-b880ac2a7c3d",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-39",
-      "server": "tr-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "f7c0b872-c05d-49e7-88a7-b880ac2a7c3d",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-40",
-      "server": "hk-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "fe66dcf0-f2f6-4810-928d-3764b145ad26",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-41",
-      "server": "hk-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "fe66dcf0-f2f6-4810-928d-3764b145ad26",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-42",
-      "server": "sg-02.cloudlion.me",
-      "server_port": 8005,
-      "password": "fe66dcf0-f2f6-4810-928d-3764b145ad26",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-43",
-      "server": "ru-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "fe66dcf0-f2f6-4810-928d-3764b145ad26",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Mahdi-VIP-44",
-      "server": "tr-01.cloudlion.me",
-      "server_port": 8005,
-      "password": "fe66dcf0-f2f6-4810-928d-3764b145ad26",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "Mahdi-VIP-45",
-      "server": "[::ffff:676b:c583]",
-      "server_port": 89,
-      "username": "1VmfJzieuyTfAMnWZVKNKZbR",
-      "password": "F1P4EJa45WxJYNRQKFqVc936",
+      "type": "trojan",
+      "tag": "🇹🇷MΛHdi",
+      "server": "dried-chow-kite.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "dried-chow-kite.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-46",
-      "server": "185.214.97.110",
-      "server_port": 89,
-      "username": "1VmfJzieuyTfAMnWZVKNKZbR",
-      "password": "F1P4EJa45WxJYNRQKFqVc936",
+      "type": "trojan",
+      "tag": "🇪🇸MΛHdi",
+      "server": "strut-brisk-scope.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "strut-brisk-scope.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-47",
-      "server": "::ffff:d5e8:5745",
-      "server_port": 89,
-      "username": "yLoEDZiuRqdg8HqQfaEMXhzn",
-      "password": "xFJrJhcRDNSf7a7SCxz1wH4u",
+      "type": "trojan",
+      "tag": "🇷🇸MΛHdi",
+      "server": "gong-aqua-rhyme.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "gong-aqua-rhyme.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-48",
-      "server": "195.47.194.65",
-      "server_port": 89,
-      "username": "yLoEDZiuRqdg8HqQfaEMXhzn",
-      "password": "xFJrJhcRDNSf7a7SCxz1wH4u",
+      "type": "trojan",
+      "tag": "🇫🇮MΛHdi",
+      "server": "thaw-gut-jelly.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "thaw-gut-jelly.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-49",
-      "server": "[::ffff:c0a6:f68c]",
-      "server_port": 90,
-      "username": "yLoEDZiuRqdg8HqQfaEMXhzn",
-      "password": "xFJrJhcRDNSf7a7SCxz1wH4u",
+      "type": "trojan",
+      "tag": "🇸🇪MΛHdi",
+      "server": "rash-scorn-glue.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "rash-scorn-glue.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-50",
-      "server": "[::ffff:d461:4701]",
-      "server_port": 90,
-      "username": "yLoEDZiuRqdg8HqQfaEMXhzn",
-      "password": "xFJrJhcRDNSf7a7SCxz1wH4u",
+      "type": "trojan",
+      "tag": "🇧🇬MΛHdi",
+      "server": "cache-giver-wife.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "cache-giver-wife.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-51",
-      "server": "[::ffff:d461:4603]",
-      "server_port": 89,
-      "username": "yLoEDZiuRqdg8HqQfaEMXhzn",
-      "password": "xFJrJhcRDNSf7a7SCxz1wH4u",
+      "type": "trojan",
+      "tag": "🇨🇿MΛHdi",
+      "server": "bats-paper-chump.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "bats-paper-chump.stark-industries.solutions"
       }
     },
     {
-      "type": "http",
-      "tag": "Mahdi-VIP-52",
-      "server": "[::ffff:426f:3de9]",
-      "server_port": 90,
-      "username": "E93HGGpA8jQPvnehhrA7DwoD",
-      "password": "C8dAN1ccgBNyBqG4WCFynQXH",
+      "type": "trojan",
+      "tag": "🇸🇰MΛHdi",
+      "server": "nacho-rerun-crepe.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
       "tls": {
         "enabled": true,
-        "server_name": "gitlab.com",
-        "insecure": true,
-        "alpn": "h2,http/1.1"
-      },
-      "headers": {
-        "Host": "marilynmanson.link"
+        "server_name": "nacho-rerun-crepe.stark-industries.solutions"
       }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇱🇻MΛHdi",
+      "server": "dig-cage-gala.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "dig-cage-gala.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇮🇸MΛHdi",
+      "server": "trap-movie-power.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "trap-movie-power.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵MΛHdi",
+      "server": "lemon-gas-army.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "lemon-gas-army.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇧🇷MΛHdi",
+      "server": "wake-bagel-tall.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "wake-bagel-tall.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇸🇮MΛHdi",
+      "server": "lazy-work-poppy.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "lazy-work-poppy.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇦🇲MΛHdi",
+      "server": "upon-wimp-legal.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "upon-wimp-legal.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇲🇰MΛHdi",
+      "server": "snarl-dish-cloth.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "snarl-dish-cloth.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇱🇺MΛHdi",
+      "server": "parka-limit-runny.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "parka-limit-runny.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷MΛHdi",
+      "server": "vice-dove-flock.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "vice-dove-flock.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇭🇷MΛHdi",
+      "server": "dose-siren-pagan.stark-industries.solutions",
+      "server_port": 443,
+      "password": "8264f515-90b6-4152-9830-7abc0ec215c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "dose-siren-pagan.stark-industries.solutions"
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
     },
     {
       "type": "direct",
       "tag": "direct"
     },
     {
-      "type": "block",
-      "tag": "block"
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-30",
+        "sleep": "2-8"
+      }
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
     }
   ],
   "route": {
     "rules": [
+      {
+        "inbound": "tun-in",
+        "package_name": "app.hiddify.com",
+        "outbound": "bypass"
+      },
       {
         "inbound": "dns-in",
         "outbound": "dns-out"
@@ -952,80 +705,20 @@
       {
         "port": 53,
         "outbound": "dns-out"
-      },
-      {
-        "network": "udp",
-        "port": 443,
-        "outbound": "block"
-      },
-      {
-        "clash_mode": "Mahdi-VIP-Hiddify",
-        "outbound": "Mahdi-VIP-Hiddify"
-      },
-      {
-        "protocol": "stun",
-        "outbound": "block"
-      },
-      {
-        "ip_cidr": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ],
-        "outbound": "block"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "domain_regex": [
-          ".*\\.ir$",
-          ".*\\.xn--mgba3a4f16a$"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geoip-ir",
-          "geosite-ir"
-        ],
-        "outbound": "direct"
       }
     ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geoip-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
-        "download_detour": "direct",
-        "update_interval": "168h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "direct",
-        "update_interval": "168h0m0s"
-      }
-    ],
-    "final": "Mahdi-VIP-Hiddify",
+    "final": "select",
     "auto_detect_interface": true,
     "override_android_vpn": true
   },
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "path": "cache.db",
-      "cache_id": "sinabigo",
-      "store_fakeip": true,
-      "store_rdrc": true,
-      "rdrc_timeout": "168h0m0s"
+      "path": "clash.db"
     },
     "clash_api": {
-      "default_mode": "Mahdi-VIP-Hiddify"
+      "external_controller": "127.0.0.1:16756",
+      "secret": "gJsz_Sy08wXM8JYp"
     }
   }
 }
